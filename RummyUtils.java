@@ -61,11 +61,20 @@ public class RummyUtils {
         return isSequenceOfNCards;
     }
 
-    public static void sort(List<Card> cards) {
+    public static void sortByFaceValue(List<Card> cards) {
         Collections.sort(cards, new Comparator<Card>() {
             @Override
             public int compare(Card o1, Card o2) {
                 return o1.getFaceValue() - o2.getFaceValue();
+            }
+        });
+    }
+    
+    public static void sortBySuit(List<Card> cards) {
+        Collections.sort(cards, new Comparator<Card>() {
+            @Override
+            public int compare(Card o1, Card o2) {
+                return o1.getSuit().ordinal() - o2.getSuit().ordinal();
             }
         });
     }
